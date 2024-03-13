@@ -70,4 +70,22 @@ CREATE TABLE tarea (
     recompensa VARCHAR(100)
 );
 
+CREATE TABLE participan (
+    alumno_id INT,
+    tarea_id INT,
+    nota INT,
+    FOREIGN KEY (alumno_id) REFERENCES alumno(id),
+    FOREIGN KEY (tarea_id) REFERENCES tarea(id)
+);
+CREATE TABLE ranking (
+    id INT PRIMARY KEY,
+    tarea_id INT,
+    FOREIGN KEY (tarea_id) REFERENCES tarea(id)
+);
+CREATE TABLE gestiona (
+    profesor_id INT,
+    ranking_id INT,
+    FOREIGN KEY (profesor_id) REFERENCES profesor(id),
+    FOREIGN KEY (ranking_id) REFERENCES ranking(id)
+);
 
