@@ -48,3 +48,26 @@ CREATE TABLE notificaciones (
     alumno_id INT,
     FOREIGN KEY (alumno_id) REFERENCES alumno(id)
 );
+
+CREATE TABLE curso (
+    clave INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+CREATE TABLE pertenecer (
+    alumno_id INT,
+    curso_clave INT,
+    progreso INT,
+    codicia INT,
+    aceptado BOOLEAN,
+    FOREIGN KEY (alumno_id) REFERENCES alumno(id),
+    FOREIGN KEY (curso_clave) REFERENCES curso(clave)
+);
+
+CREATE TABLE tarea (
+    id INT PRIMARY KEY,
+    fecha DATE,
+    recompensa VARCHAR(100)
+);
+
+
