@@ -83,7 +83,7 @@ CREATE TABLE ranking (
     FOREIGN KEY (tarea_id) REFERENCES tarea(id)
 );
 CREATE TABLE gestiona (
-    profesor_id INT,
+    profesor_id INT,  
     ranking_id INT,
     FOREIGN KEY (profesor_id) REFERENCES profesor(id),
     FOREIGN KEY (ranking_id) REFERENCES ranking(id)
@@ -111,5 +111,22 @@ INSERT INTO alumno (id, usuario_id) VALUES
 
 INSERT INTO profesor (id, usuario_id) VALUES
 (3, 1);
+
+INSERT INTO curso (clave, nombre) VALUES
+(1, 'Curso1'),
+(2, 'Curso2');
+
+INSERT INTO pertenecer (alumno_id, curso_clave, progreso, codicia, aceptado) VALUES
+(1, 1, 50, 2, true),
+(2, 2, 75, 3, false),
+(3, 1, 60, 1, false),
+(4, 2, 80, 4, true),
+(5, 1, 70, 3, true),
+(6, 2, 85, 2, false),
+(7, 1, 55, 2, true);
+
+INSERT INTO tarea (id, fecha, recompensa) VALUES
+(1, '2024-03-13', 'Recompensa1'),
+(2, '2024-03-14', 'Recompensa2');
 
 
