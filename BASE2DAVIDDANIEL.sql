@@ -26,3 +26,25 @@ CREATE TABLE profesor (
     usuario_id INT,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+
+CREATE TABLE inventario (
+    id INT PRIMARY KEY,
+    cantidad INT,
+    alumno_id INT,
+    FOREIGN KEY (alumno_id) REFERENCES alumno(id)
+);
+CREATE TABLE tierras (
+    id INT PRIMARY KEY,
+    posicion VARCHAR(100),
+    tipo_terreno VARCHAR(100),
+    alumno_id INT,
+    FOREIGN KEY (alumno_id) REFERENCES alumno(id)
+);
+CREATE TABLE notificaciones (
+    id INT PRIMARY KEY,
+    tipo VARCHAR(100),
+    fecha DATE,
+    vista BOOLEAN,
+    alumno_id INT,
+    FOREIGN KEY (alumno_id) REFERENCES alumno(id)
+);
