@@ -138,3 +138,9 @@ INSERT INTO participan (alumno_id, tarea_id, nota) VALUES
 (6, 2, 90),
 (7, 1, 70);
 
+INSERT INTO ranking (id, tarea_id) VALUES
+(1, 1),
+(2, 2);
+
+INSERT INTO gestiona (profesor_id, ranking_id) VALUES
+(3, 1);
