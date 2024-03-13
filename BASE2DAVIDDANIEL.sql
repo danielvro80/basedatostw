@@ -89,3 +89,27 @@ CREATE TABLE gestiona (
     FOREIGN KEY (ranking_id) REFERENCES ranking(id)
 );
 
+/* CREACION DE INSERTS */
+
+INSERT INTO usuario (id, nombre, apellidos, username, correo, clave_cifrada) VALUES
+(1, 'Daniel', 'Viñuelas', 'Dani', 'DANIELVIÑUELAS@gmail.com', 'clave1'),
+(2, 'David', 'Quintanilla', 'DavidLQ', 'DAVIDLOPEZ@gmail.com', 'clave2'),
+(3, 'Laura', 'González', 'LauraG', 'lauragonzalez@gmail.com', 'clave3'),
+(4, 'María', 'Martínez', 'MariaM', 'mariamartinez@gmail.com', 'clave4'),
+(5, 'Carlos', 'Rodríguez', 'CarlosR', 'carlosrodriguez@gmail.com', 'clave5'),
+(6, 'Ana', 'López', 'AnaL', 'analopez@gmail.com', 'clave6'),
+(7, 'Pedro', 'García', 'PedroG', 'pedrogarcia@gmail.com', 'clave7');
+
+INSERT INTO alumno (id, usuario_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7);
+
+INSERT INTO profesor (id, usuario_id) VALUES
+(3, 1);
+
+
