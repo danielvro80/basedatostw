@@ -129,4 +129,12 @@ INSERT INTO tarea (id, fecha, recompensa) VALUES
 (1, '2024-03-13', 'Recompensa1'),
 (2, '2024-03-14', 'Recompensa2');
 
+INSERT INTO participan (alumno_id, tarea_id, nota) VALUES
+(1, 1, 90),
+(2, 2, 80),
+(3, 1, 85),
+(4, 2, 75),
+(5, 1, 80),
+(6, 2, 90),
+(7, 1, 70);
 
