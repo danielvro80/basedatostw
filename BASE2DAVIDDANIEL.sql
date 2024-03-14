@@ -214,7 +214,7 @@ GROUP BY a.id;
 
 SELECT u.id, COUNT(n.id) AS num_notificaciones
 FROM usuario u
-LEFT JOIN notificaciones n ON u.id = n.alumno_id
+JOIN notificaciones n ON u.id = n.alumno_id
 WHERE n.vista = false
 GROUP BY u.id;
 
@@ -267,4 +267,31 @@ FROM usuario u
 JOIN profesor pr ON u.id = pr.usuario_id
 JOIN pertenecer p ON pr.curso_clave = p.curso_clave
 GROUP BY u.username;
+
+/* con esta tarea seleccionamos el nombre de usuario y la cantidad de tareas completadas por cada alumno, ordenados por orden descendente*/
+
+SELECT u.username, COUNT(DISTINCT tarea_id) AS cantidad_tareas_completadas
+FROM usuario u
+JOIN alumno a ON u.id = a.usuario_id
+JOIN participan p ON a.id = p.alumno_id
+GROUP BY u.username
+ORDER BY cantidad_tareas_completadas DESC;
+
+/* con esta consulta seleccionamos  el nombre de usuario y la cantidad de cursos en los que está inscrito cada usuario, y el nombre del curso más reciente al que se ha inscrito*/
+
+
+SELECT u.username, COUNT(p.curso_clave) AS cantidad_cursos_inscritos, MAX(c.nombre) AS ultimo_curso_inscrito
+FROM usuario u
+JOIN alumno a ON u.id = a.usuario_id
+JOIN pertenecer p ON a.id = p.alumno_id
+JOIN curso c ON p.curso_clave = c.clave
+GROUP BY u.username;
+
+
+/*  con esta consulta seleccionamos todos los usuarios cuyos nombres de usuario empiezan por la letra D . */
+SELECT *
+FROM usuario
+WHERE username LIKE 'D%';
+
+
 
