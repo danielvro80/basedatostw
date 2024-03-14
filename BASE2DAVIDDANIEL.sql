@@ -234,7 +234,7 @@ JOIN participan p ON t.id = p.tarea_id
 JOIN alumno a ON p.alumno_id = a.id
 JOIN usuario u ON a.usuario_id = u.id;
 
-/* con esta tarea seleccionamos todas las tareas que se han completado mas de 5 veces */
+/* con esta tarea  seleccionamos  todas las tareas que se han completado mas de 5 veces */
 
 SELECT tarea.id, tarea.fecha, COUNT(participan.tarea_id) AS completadas
 FROM tarea
