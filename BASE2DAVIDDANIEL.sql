@@ -177,5 +177,29 @@ SELECT DISTINCT recompensa
 FROM tarea
 JOIN participan ON tarea.id = participan.tarea_id;
 
+/* con esta consulta seleccionamos todos los usuarios y sus correos por orden alfabetico de su apellido*/ 
+
+SELECT correo
+FROM usuario
+ORDER BY apellidos;
+
+/* con esta consulta seleccionamos todas las tareas completadas por un alumno concreto */
+
+SELECT tarea.id, tarea.fecha
+FROM tarea
+JOIN participan ON tarea.id = participan.tarea_id
+JOIN alumno ON participan.alumno_id = alumno.id
+JOIN usuario ON alumno.usuario_id = usuario.id
+WHERE usuario.username = 'nombre_usuario';
+
+/* con esta consulta seleccionamos a todos los alumnos que se llaman David y  hayan completado alguna  tarea*/
+
+SELECT u.nombre, u.apellidos
+FROM usuario u
+JOIN alumno a ON u.id = a.usuario_id
+JOIN participan p ON a.id = p.alumno_id
+JOIN tarea t ON p.tarea_id = t.id
+WHERE u.nombre = 'David';
+
 
 
