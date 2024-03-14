@@ -144,3 +144,21 @@ INSERT INTO ranking (id, tarea_id) VALUES
 
 INSERT INTO gestiona (profesor_id, ranking_id) VALUES
 (3, 1);
+
+/* CONSULTAS SQL */
+
+/* con esta consulta seleccionamos todos los  nombres y correos de todos los usuarios */
+SELECT username , correo 
+FROM usuario;
+
+/* con esta consulta estamos seleccionando todas las tareas y sus fechas */
+SELECT id, fecha
+FROM tarea;
+
+/* con esta consulta seleccionamos todos los profesores y sus nombres de usuario*/
+SELECT username
+FROM usuario
+WHERE id IN (SELECT usuario_id FROM profesor);
+
+
+
