@@ -242,5 +242,29 @@ JOIN participan ON tarea.id = participan.tarea_id
 GROUP BY tarea.id
 HAVING COUNT(participan.tarea_id) > 5;
 
+/*Seleccionar todos los alumnos que están inscritos en más de un curso:*/
 
+SELECT u.nombre, u.apellidos
+FROM usuario u
+JOIN alumno a ON u.id = a.usuario_id
+JOIN pertenecer p ON a.id = p.alumno_id
+GROUP BY u.nombre, u.apellidos
+HAVING COUNT(DISTINCT p.curso_clave) > 1;
+
+/*Seleccionar el curso con la menor cantidad de alumnos inscritos:*/
+
+SELECT c.nombre AS nombre_curso, COUNT(p.alumno_id) AS cantidad_alumnos
+FROM curso c
+JOIN pertenecer p ON c.clave = p.curso_clave
+GROUP BY c.nombre
+ORDER BY COUNT(p.alumno_id) ASC
+LIMIT 1;
+
+/*Seleccionar el nombre de usuario del profesor y la cantidad total de alumnos inscritos en sus cursos:*/
+
+SELECT u.username, COUNT(DISTINCT p.alumno_id) AS total_alumnos_inscritos
+FROM usuario u
+JOIN profesor pr ON u.id = pr.usuario_id
+JOIN pertenecer p ON pr.curso_clave = p.curso_clave
+GROUP BY u.username;
 
