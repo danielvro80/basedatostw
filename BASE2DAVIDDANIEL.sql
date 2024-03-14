@@ -151,7 +151,7 @@ INSERT INTO gestiona (profesor_id, ranking_id) VALUES
 SELECT username , correo 
 FROM usuario;
 
-/* con esta consulta estamos seleccionando todas las tareas y sus fechas */
+/* con esta consulta  estamos seleccionando todas las tareas y sus fechas */
 SELECT id, fecha
 FROM tarea;
 
