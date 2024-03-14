@@ -218,4 +218,29 @@ LEFT JOIN notificaciones n ON u.id = n.alumno_id
 WHERE n.vista = false
 GROUP BY u.id;
 
+/* con esta consulta seleccionamos todos los cursos y el profesor que los imparte*/
+
+SELECT c.nombre AS nombre_curso, u.nombre AS nombre_profesor, u.apellidos AS apellidos_profesor
+FROM curso c
+JOIN pertenecer p ON c.clave = p.curso_clave
+JOIN profesor pr ON p.curso_clave = pr.curso_clave
+JOIN usuario u ON pr.usuario_id = u.id;
+
+/* con esta consulta seleccionamos todas las tareas , el nombre de usuario de quien las completo y su nota */
+
+SELECT t.id, u.username, p.nota
+FROM tarea t
+JOIN participan p ON t.id = p.tarea_id
+JOIN alumno a ON p.alumno_id = a.id
+JOIN usuario u ON a.usuario_id = u.id;
+
+/* con esta tarea seleccionamos todas las tareas que se han completado mas de 5 veces */
+
+SELECT tarea.id, tarea.fecha, COUNT(participan.tarea_id) AS completadas
+FROM tarea
+JOIN participan ON tarea.id = participan.tarea_id
+GROUP BY tarea.id
+HAVING COUNT(participan.tarea_id) > 5;
+
+
 
