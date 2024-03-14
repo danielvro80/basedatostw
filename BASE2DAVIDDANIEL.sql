@@ -201,5 +201,21 @@ JOIN participan p ON a.id = p.alumno_id
 JOIN tarea t ON p.tarea_id = t.id
 WHERE u.nombre = 'David';
 
+/*Seleccionar el promedio de notas de todas las tareas completadas por cada alumno:*/
+
+
+SELECT a.id, AVG(p.nota) AS promedio_notas
+FROM alumno a
+JOIN participan p ON a.id = p.alumno_id
+GROUP BY a.id;
+
+/*Seleccionar el número total de notificaciones no vistas para cada usuario*/
+
+
+SELECT u.id, COUNT(n.id) AS num_notificaciones
+FROM usuario u
+LEFT JOIN notificaciones n ON u.id = n.alumno_id
+WHERE n.vista = false
+GROUP BY u.id;
 
 
