@@ -160,5 +160,22 @@ SELECT username
 FROM usuario
 WHERE id IN (SELECT usuario_id FROM profesor);
 
+/*Seleccionar todas las notificaciones no vistas:*/
+
+SELECT *
+FROM notificaciones
+WHERE vista = false;
+
+/*Seleccionar todas las tierras y sus posiciones:*/
+
+SELECT posicion
+FROM tierras;
+
+/*Seleccionar todas las recompensas de las tareas completadas:*/ 
+
+SELECT DISTINCT recompensa
+FROM tarea
+JOIN participan ON tarea.id = participan.tarea_id;
+
 
 
